@@ -13,6 +13,8 @@
 # limitations under the License.
 
 import re
+import webbrowser
+
 from os.path import dirname, join
 
 from adapt.intent import IntentBuilder
@@ -33,7 +35,9 @@ class SpeakSkill(MycroftSkill):
         # Remove everything up to the speak keyword and repeat that
         utterance = message.data.get('utterance')
         repeat = re.sub('^.*?' + message.data['Speak'], '', utterance)
-        self.speak(repeat.strip())
+        # self.speak(repeat.strip())
+        url = 'http://www.baidu.com'
+        webbrowser.open(url)
 
     def stop(self):
         pass
