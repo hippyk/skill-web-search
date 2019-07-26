@@ -5,3 +5,5 @@ settings.json
 
 # Vim temp files
 .*.sw?
+
+.vscode
