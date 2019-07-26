@@ -1,9 +1,9 @@
 {
-  "utterance": "speak hello jason",
-  "intent_type": "speak_back",
+  "utterance": "search love",
+  "intent_type": "default",
   "intent": {
-    "Speak": "speak",
-    "Words": "hello jason"
+    "Search": "search",
+    "Words": "love"
   },
-  "expected_response": "hello jason"
+  "expected_response": ""
 }

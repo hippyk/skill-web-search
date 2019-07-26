@@ -23,20 +23,17 @@ from mycroft import MycroftSkill, intent_handler
 
 # TODO - Localization
 
-class SpeakSkill(MycroftSkill):
-    @intent_handler(IntentBuilder("").require("Speak").require("Words"))
-    def speak_back(self, message):
+class SearchSkill(MycroftSkill):
+    @intent_handler(IntentBuilder("").require("Search").require("Words"))
+    def default(self, message):
         """
-            Repeat the utterance back to the user.
-
             TODO: The method is very english centric and will need
                   localization.
         """
-        # Remove everything up to the speak keyword and repeat that
         utterance = message.data.get('utterance')
-        repeat = re.sub('^.*?' + message.data['Speak'], '', utterance)
+        keyword = re.sub('^.*?' + message.data['Search'], '', utterance)
         # self.speak(repeat.strip())
-        url = 'http://www.baidu.com'
+        url = 'https://cn.bing.com/search?q=' + keyword.strip()
         webbrowser.open(url)
 
     def stop(self):
@@ -44,4 +41,4 @@ class SpeakSkill(MycroftSkill):
 
 
 def create_skill():
-    return SpeakSkill()
+    return SearchSkill()
